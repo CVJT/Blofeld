@@ -4,7 +4,7 @@ project(blofeld_tests)
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 add_executable(runUnitTests
-        Test1.cpp)
+        FileReaderTests/Test1.cpp)
 
 target_link_libraries(runUnitTests gtest gtest_main)
 
