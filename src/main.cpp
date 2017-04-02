@@ -5,30 +5,31 @@
 
 #include <fstream>
 #include <iostream>
+#include "reader.h"
 
 using namespace std;
 
-void readFile (string fileLocation) {
-  string line;
-  ifstream myfile(fileLocation);
-  if (myfile.is_open()) {
-    while (getline(myfile, line)) {
-      cout << line << '\n';
-    }
-    myfile.close();
-  } else cout << "Unable to open file";
-}
+string txtFile (string fileLocation);
 
 int main() {
   string fileName;
-
   cout << "Input the file location:";
   cin >> fileName;
-
- readFile(fileName);
-
-  //readFile("/Users/Tilps007/Development/HillSheepStudios/Blofeld/TestFiles/Test1.txt");
-
+  cout << txtFile(fileName);
   return 0;
 }
 
+string txtFile (string fileLocation) {
+  string line;
+  string output ="";
+  ifstream myfile(fileLocation);
+  if (myfile.is_open()) {
+    while (getline(myfile, line)) {
+      output = output + line +'\n';
+    }
+    myfile.close();
+  } else {
+    output = "Unable to open file";
+  }
+  return output;
+}
